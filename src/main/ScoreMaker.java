@@ -1,4 +1,4 @@
-package main;
+/*package main;
 
 import static java.lang.Integer.max;
 
@@ -136,3 +136,4 @@ public class ScoreMaker {
     }
 
 }
+ */

@@ -2,7 +2,7 @@ package main;
 import java.util.ArrayList;
 
 public class ScoreBoard {
-    private final int nameLength = 12;
+    private final int nameLength = 10;
     ArrayList<Player> players;
 
     //コンストラクタ
@@ -29,7 +29,7 @@ public class ScoreBoard {
         for(Player p : this.players) {
             //1行目
             System.out.printf("%2d|",id);
-            System.out.printf("%" + this.nameLength + "s|", p.name);
+            System.out.printf("%-" + this.nameLength + "s|", p.name);
             for (int i = 0; i <= 8; i++) {
                 System.out.printf(" %s %s|", p.score[2 * i], p.score[2 * i + 1]);
             }

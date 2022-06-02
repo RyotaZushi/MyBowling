@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class ScoreCalculator {
 
-    public int[] translateScore(String[] score) {
+    public static int[] translateScore(String[] score) {
         int j = 0;//translatedを指す添字
         int[] translated = new int[21];
         for (int i = 0; i <= 20; i++) {
             //iはscoreの添字
-            switch(score[i]){
+            switch(score[i]) {
                 case "X":
                     translated[j] = 10;
                     break;
@@ -17,8 +17,9 @@ public class ScoreCalculator {
                     translated[j] = 0;
                     break;
                 case "/":
-                    translated[j] = 10 - translated[j-1];
+                    translated[j] = 10 - translated[j - 1];
                     break;
+
                 case " ":
                     j--;
                     break;
@@ -30,7 +31,7 @@ public class ScoreCalculator {
         return translated;
     }
 
-    public int[] calculateTotal(String[] score) {
+    public static int[] calculateTotal(String[] score) {
         int[] translated = translateScore(score);
         int[] sum = new int[10];
         int j = 0;
@@ -41,6 +42,7 @@ public class ScoreCalculator {
                 sum[i] = 10 + translated[j + 1] + translated [j + 2] + prevSum;
                 j++;
             }else if(translated[j] + translated[j + 1] == 10) {
+                //スペアのとき
                 sum[i] = 10 + translated [j + 2] + prevSum;
                 j += 2;
             }else{
